@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+<script defer src="bundle.js"></script></head>
+
+<body>
+    <div class="wrapper">
+        <!-- Top Navigation Bar -->
+        <header class="top-nav">
+            <div class="logo">Logo Here</div>
+            <div class="search">
+                <input type="text" id="userInput" class="search-input" placeholder="Enter Location">
+                <button id="submitButton" class="search-submit">🔎︎</button>
+            </div>
+            <div class="settings">
+                <button id="toggle-dark-mode">Dark Mode</button>
+
+                <script>
+                    document.getElementById('toggle-dark-mode').addEventListener('click', function () {
+                        document.body.classList.toggle('dark-mode');
+
+                        // Optionally save the user's preference in localStorage
+                        if (document.body.classList.contains('dark-mode')) {
+                            localStorage.setItem('theme', 'dark');
+                        } else {
+                            localStorage.setItem('theme', 'light');
+                        }
+                    });
+
+                    // Check for saved user preference
+                    window.addEventListener('load', function () {
+                        const savedTheme = localStorage.getItem('theme');
+                        if (savedTheme === 'dark') {
+                            document.body.classList.add('dark-mode');
+                        }
+                    });
+                </script>
+
+            </div>
+
+        </header>
+
+        <!-- Current Day's Weather Information -->
+        <div class="info">
+            <div id="loading" class="loading" style="display: none;">Loading...</div>
+            <div id="result" class="location-details"></div>
+
+            <div class="section-weather">
+                <!-- Large Temperature Display -->
+                <div class="weather-main">
+                    <div id="degreeTxt" class="big-data">25°C</div>
+                    <div id="feelikeTxt" class="weather-desc">Feels like: 23°C</div>
+                </div>
+
+                <!-- Grid for Other Weather Data -->
+                <div class="weather-details-grid">
+                    <div id="wind" class="weather-detail">Wind: 10 km/h</div>
+                    <div id="humidity" class="weather-detail">Humidity: 60%</div>
+                    <div id="chanceOfRain" class="weather-detail">Chance of Rain: 20%</div>
+                    <div id="cloudiness" class="weather-detail">Cloudiness: 50%</div>
+                    <div id="sunrise" class="weather-detail">Sunrise: 6:30 AM</div>
+                    <div id="sunset" class="weather-detail">Sunset: 8:00 PM</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Other Days' Weather Information -->
+        <div class="main-container">
+            <div class="section-daily">
+                <div class="daily-header">Weekly Forecast</div>
+                <div class="bottom-row">
+                    <div class="day two">
+                        <header class="degree two">some text</header>
+                        <header class="feel-like two">some text</header>
+                    </div>
+                    <div class="day three">
+                        <header class="degree three">some text</header>
+                        <header class="feel-like three">some text</header>
+                    </div>
+                    <div class="day four">
+                        <header class="degree four">some text</header>
+                        <header class="feel-like four">some text</header>
+                    </div>
+                    <div class="day five">
+                        <header class="degree five">some text</header>
+                        <header class="feel-like five">some text</header>
+                    </div>
+                    <div class="day six">
+                        <header class="degree six">some text</header>
+                        <header class="feel-like six">some text</header>
+                    </div>
+                    <div class="day seven">
+                        <header class="degree seven">some text</header>
+                        <header class="feel-like seven">some text</header>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="credits">Made by Nadav</div>
+        </footer>
+    </div>
+</body>
+
+</html>
