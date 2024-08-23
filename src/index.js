@@ -6,7 +6,6 @@ import { fahrenheitToCelsius } from './convert.js';
 const feelikeTxt = document.getElementById('feelikeTxt');
 const degreeTxt = document.getElementById('degreeTxt');
 
-
 let time = 0;
 
 async function getWeather(location) {
@@ -15,15 +14,28 @@ async function getWeather(location) {
     return weatherData;
 }
 let place;
+
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('submitButton').addEventListener('click', () => {
-        const inputText = document.getElementById('userInput').value;
-        place = inputText;
+    const inputField = document.getElementById('userInput');
+    const submitButton = document.getElementById('submitButton');
+
+    // Function to update weather
+    function handleWeatherUpdate() {
+        place = inputField.value;
         updateWeather();
+    }
+
+    // Event listener for the submit button
+    submitButton.addEventListener('click', handleWeatherUpdate);
+
+    // Event listener for the Enter key
+    inputField.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();  // Prevent the default form submission
+            handleWeatherUpdate();
+        }
     });
 });
-
-
 
 async function updateWeather() {
     const loadingElement = document.getElementById('loading');
@@ -99,10 +111,5 @@ async function updateWeather() {
     }
 }
 
-
-
-
-place = 'london'; // set defualt location
+place = 'london'; // Set default location
 updateWeather();
-
-
