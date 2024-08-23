@@ -42,8 +42,8 @@ async function updateWeather() {
 
         // Update current day content
         locationResult.textContent = `Location: ${weatherData.resolvedAddress}`;
-        degreeTxt.textContent = `Degrees: ${fahrenheitToCelsius(weatherData.currentConditions.temp)}`;
-        feelikeTxt.textContent = `Feels like: ${fahrenheitToCelsius(weatherData.currentConditions.feelslike)}`;
+        degreeTxt.textContent = `${fahrenheitToCelsius(weatherData.currentConditions.temp)}°C`;
+        feelikeTxt.textContent = `Feels like: ${fahrenheitToCelsius(weatherData.currentConditions.feelslike)}°C`;
 
         // Update grid with other weather details
         document.getElementById('wind').textContent = `Wind: ${weatherData.currentConditions.windspeed} km/h`;
