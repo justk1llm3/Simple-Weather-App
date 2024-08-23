@@ -264,3 +264,72 @@ body {
     text-align: center;
     color: var(--transparent-white);
 }
+/* Add a media query for screens smaller than 600px (common mobile screen width) */
+@media screen and (max-width: 600px) {
+
+    /* Make the top navigation bar stack vertically */
+    .top-nav {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .logo,
+    .search,
+    .settings {
+        justify-self: center;
+        margin: 10px 0;
+    }
+
+    .search-input {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .search-submit {
+        width: 100%;
+        border-radius: 20px;
+        margin-top: 10px;
+    }
+
+    #toggle-dark-mode {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Stack the main content vertically */
+    .info {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .section-weather {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .weather-main {
+        margin-right: 0;
+    }
+
+    .weather-details-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    /* Adjust bottom row grid to be single column */
+    .bottom-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .day {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust footer to fit smaller screens */
+    .footer {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
