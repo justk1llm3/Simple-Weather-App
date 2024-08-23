@@ -3,8 +3,8 @@ import './convert.js'
 
 import { fahrenheitToCelsius } from './convert.js';
 //for just the first day
-const feelikeTxt = document.querySelector(".feel-like");
-const degreeTxt = document.querySelector(".degree");
+const feelikeTxt = document.getElementById('feelikeTxt');
+const degreeTxt = document.getElementById('degreeTxt');
 
 
 let time = 0;
